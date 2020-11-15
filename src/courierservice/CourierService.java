@@ -81,24 +81,6 @@ public class CourierService {
                 e.printStackTrace();
             }
         
-        /*try{
-            s = c.createStatement();
-            ResultSet rs= s.executeQuery("select * from customer");
-            while(rs.next()){
-                String name = rs.getString(2);
-                System.out.println(name);
-            }
-            rs.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-        finally{
-               
-            s.close();
-            c.close();
-            
-        }*/
     }
     
 }

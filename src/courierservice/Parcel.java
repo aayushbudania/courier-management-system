@@ -33,9 +33,8 @@ public class Parcel {
                     + " from parcel p"
                     + " inner join (select shipmentID from shipment"
                     + " where customerID = '"+ customerID +"'"
-                    + " order by pickupDate desc) s"
-                    + " on p.parcelID = s.shipmentID"
-                    + " limit 1 ;";
+                    + " order by pickupDate desc limit 1) s"
+                    + " on p.parcelID = s.shipmentID";
             
             ResultSet rs = stmt.executeQuery(sql);
             

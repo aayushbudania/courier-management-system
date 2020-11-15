@@ -34,7 +34,7 @@ public class DeliveryBoy extends Employee{
             String sql = "select d.* from deliveryBoy d"
                     + " inner join (select deliveryManID from shipment"
                     + " where customerID = '"+ customerID +"'"
-                    + " order by pickupDate limit 1) s"
+                    + " order by pickupDate desc limit 1) s"//
                     + " on d.deliveryManID = s.deliveryManID;";
             
             ResultSet rs = stmt.executeQuery(sql);
@@ -92,7 +92,7 @@ public class DeliveryBoy extends Employee{
         while(true){
         System.out.println("**************************************\n");
         System.out.println("PRESS 1 : To set status of shipment.");
-        System.out.println("PRESS 2 : To Show Shipments remaining to be fetched : ");
+        System.out.println("PRESS 2 : To Show Shipments remaining to be fetched ");
         System.out.println("PRESS 3 : TO show your Details");
         System.out.println("PRESS 4 : To Log Out.");
         System.out.println("**************************************\n");
@@ -181,7 +181,11 @@ public class DeliveryBoy extends Employee{
             
             while(rs.next()){
                 
-                System.out.println("DELIVERYMAN ID : "+rs.getInt(1)+" \nNAME : "+rs.getString(2)+" \nVEHICLE ID : "+rs.getInt(3)+" \nRATING : "+rs.getDouble(4)+" \nPHONE NUMBER : "+rs.getLong(5));
+                System.out.println("DELIVERYMAN ID : "+rs.getInt(1));
+                System.out.println("NAME           : "+rs.getString(2));
+                System.out.println("VEHICLE ID     : "+rs.getInt(3));
+                System.out.println("RATING         : "+rs.getDouble(4));
+                System.out.println("PHONE NUMBER   : "+rs.getLong(5));
             }
         }
         catch(SQLException e){

@@ -23,19 +23,6 @@ public class Shipment {
         
         int tmp=0;
         
-        /*try{
-            
-            ResultSet rs = stmt.executeQuery("select count(shipmentID) from shipment;");
-            
-            while(rs.next()){
-                tmp= rs.getInt(1)+1;
-            }
-            rs.close();
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }*/
-        
         this.shipmentID = tmp;
         this.officeID = tmp % 4;
         this.deliveryManID = tmp % 8;
@@ -54,9 +41,6 @@ public class Shipment {
         
         System.out.print("Enter expected delivery date (YYYY-MM-DD): ");
         String deliveryDate = sc.next();
-        
-        /*System.out.print("Enter your customerID : ");
-        String tmpID = sc.next();*/
         
 
         
@@ -169,12 +153,14 @@ public class Shipment {
         
         else if(check==2){
             System.out.println("\n---------------------------------------------");
-            System.out.println("\nPRESS 1 : To check location.");
+            System.out.println("PRESS 1 : To check location.");
             System.out.println("PRESS 2 : To Show Delivery Man's Details.");
             System.out.println("PRESS 3 : To show parcel Details.");
             System.out.println("PRESS 4 : To show office Details.");
             System.out.println("PRESS 5 : To show vehicle Details.");
-            System.out.println("PRESS 6 : To go back.\n");
+            System.out.println("PRESS 6 : To show cost.");
+            System.out.println("PRESS 7 : To show Status.");
+            System.out.println("PRESS 8 : To go back.");
             System.out.println("---------------------------------------------\n");
             System.out.print("Enter your choice : ");
             
@@ -193,7 +179,12 @@ public class Shipment {
                          break;
                 case 5 : new Vehicle(stmt,customerID);
                          break;
-                case 6 : System.out.println("Going Back");
+                case 6 : this.getCost(stmt, customerID);
+                         break;
+                case 7 : this.getStatus(stmt,customerID);
+                         break;
+                case 8 : System.out.println("Going Back");
+                         break;
                 default: System.out.println("Invalid Option , Going Back.");
                          break;
                          
@@ -211,6 +202,39 @@ public class Shipment {
         }
 
     }
+    public void getCost(Statement stmt,String customerID){
+        
+        try{
+            String sql = "select cost from shipment where customerID ='"+customerID+"'"
+                    + " order by pickupDate desc limit 1";
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                System.out.println("COST : "+rs.getDouble(1));
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+    }
+    public void getStatus(Statement stmt,String customerID){
+        
+         try{
+            String sql = "select status from shipment where customerID ='"+customerID+"'"
+                    + " order by pickupDate desc limit 1";
+            
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                System.out.println("STATUS : "+rs.getString(1));
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    //------------------------------------------------------------------------------------------------------------//
     
     public void cancelShipment(Statement stmt,String customerID){
         
@@ -227,7 +251,7 @@ public class Shipment {
         if(rs.next()){
 
                 this.shipmentID = rs.getInt(1);
-                System.out.println(rs.getInt(1));
+                System.out.println("SHIPMENT ID : "+rs.getInt(1));
     
             System.out.println("Do you want to cancel your shipment [Y/n]:");
             String check = sc.next();

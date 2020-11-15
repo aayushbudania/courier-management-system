@@ -87,11 +87,11 @@ public class Customer {
             
         System.out.println("********************************************************\n");
         System.out.println("PRESS 1 : To Place New Shipment.");
-        System.out.println("PRESS 2 : To track your Shipment");
-        System.out.println("PRESS 3 : To cancel your Shipment");
-        System.out.println("PRESS 4 : To Show your Information");
-        System.out.println("PRESS 5 : To edit your Information");
-        System.out.println("PRESS 6 : To Log out from the System\n");
+        System.out.println("PRESS 2 : To track your Shipment.");
+        System.out.println("PRESS 3 : To cancel your Shipment.");
+        System.out.println("PRESS 4 : To Show your Information.");
+        System.out.println("PRESS 5 : To edit your Information.");
+        System.out.println("PRESS 6 : To Log out from the System.\n");
         System.out.println("********************************************************\n");
         
         System.out.print("Enter your choice : ");

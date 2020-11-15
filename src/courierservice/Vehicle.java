@@ -40,7 +40,7 @@ public class Vehicle {
                 System.out.println("REGISTRATION NO: "+ rs.getString(3));
                 System.out.println("COST           : "+ rs.getDouble(4));
                 System.out.println("CAPACITY       : "+ rs.getDouble(5));
-                System.out.println("DISTANCE       ; "+ rs.getInt(6)+"\n");
+                System.out.println("DISTANCE       : "+ rs.getInt(6)+"\n");
             }
             
             rs.close();

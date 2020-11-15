@@ -16,9 +16,8 @@ public class PickupLocation extends Location{
             String sql = "select l.pickupStreet,l.pickupCity,l.pickupState from location l"
                     + " inner join (select shipmentID from shipment where"
                     + " customerID='"+customerID+"'"
-                    + " order by pickupDate desc)s"
-                    + " on l.shipmentID = s.shipmentID"
-                    + " limit 1;";
+                    + " order by pickupDate desc limit 1)s"
+                    + " on l.shipmentID = s.shipmentID";
             
             ResultSet rs = stmt.executeQuery(sql);
             
