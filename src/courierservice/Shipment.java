@@ -21,11 +21,11 @@ public class Shipment {
         System.out.println("Genrating shipment...");
         Scanner sc = new Scanner(System.in);
         
-        int tmp=0;
+        /*int tmp=0;
         
         this.shipmentID = tmp;
         this.officeID = tmp % 4;
-        this.deliveryManID = tmp % 8;
+        this.deliveryManID = tmp % 8;*/
         
         Random rand =new Random();
         int upperbound = 600;
@@ -152,6 +152,8 @@ public class Shipment {
         }
         
         else if(check==2){
+            
+            while(true){
             System.out.println("\n---------------------------------------------");
             System.out.println("PRESS 1 : To check location.");
             System.out.println("PRESS 2 : To Show Delivery Man's Details.");
@@ -185,11 +187,15 @@ public class Shipment {
                          break;
                 case 8 : System.out.println("Going Back");
                          break;
-                default: System.out.println("Invalid Option , Going Back.");
+                default: System.out.println("Invalid Option , try again");
                          break;
                          
             }
+            if (ch2 == 8) {
+                break;
+                }
             
+            }
         }
         else if(check==3)
             {
@@ -210,7 +216,7 @@ public class Shipment {
             
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
-                System.out.println("COST : "+rs.getDouble(1));
+                System.out.println("COST : Rs."+rs.getDouble(1));
             }
         }
         catch(SQLException e){
