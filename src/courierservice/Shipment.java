@@ -122,6 +122,7 @@ public class Shipment {
         Scanner sc = new Scanner(System.in);
         
         while(true){
+            
         System.out.println("\n---------------------------------------------");
         System.out.println("PRESS 1 : To show all shipments.");
         System.out.println("PRESS 2 : To track current shipment.");
@@ -154,6 +155,7 @@ public class Shipment {
         else if(check==2){
             
             while(true){
+                
             System.out.println("\n---------------------------------------------");
             System.out.println("PRESS 1 : To check location.");
             System.out.println("PRESS 2 : To Show Delivery Man's Details.");
@@ -208,6 +210,7 @@ public class Shipment {
         }
 
     }
+    
     public void getCost(Statement stmt,String customerID){
         
         try{
@@ -224,6 +227,7 @@ public class Shipment {
         }
         
     }
+    
     public void getStatus(Statement stmt,String customerID){
         
          try{

@@ -40,8 +40,7 @@ public class DeliveryBoy extends Employee{
             ResultSet rs = stmt.executeQuery(sql);
             
             while(rs.next()){
-                
-                System.out.println("DELIVERYMAN ID:"+rs.getInt(1)+"\nNAME : "+rs.getString(2)+"\nVEHICLE ID: "+rs.getInt(3)+"\nRATING: "+rs.getDouble(4)+"\nPHONE NUMBER "+ rs.getLong(5));
+                                System.out.println("DELIVERYMAN ID:"+rs.getInt(1)+"\nNAME : "+rs.getString(2)+"\nVEHICLE ID: "+rs.getInt(3)+"\nRATING: "+rs.getDouble(4)+"\nPHONE NUMBER "+ rs.getLong(5));
                 
             }
             
@@ -90,7 +89,7 @@ public class DeliveryBoy extends Employee{
         Scanner sc = new Scanner(System.in);
         
         while(true){
-        System.out.println("**************************************\n");
+        System.out.println("\n**************************************");
         System.out.println("PRESS 1 : To set status of shipment.");
         System.out.println("PRESS 2 : To Show Shipments remaining to be fetched ");
         System.out.println("PRESS 3 : TO show your Details");
@@ -193,7 +192,7 @@ public class DeliveryBoy extends Employee{
         }
     }
     
-    public int getDeliverManID(){
+    public int getDeliveryManID(){
         return deliveryManID;
     }
     

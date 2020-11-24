@@ -13,7 +13,7 @@ public class Customer {
     private String password;
     private String gender;
     
-    public void addCustomer(Statement stmt){
+    public void addCustomer(Statement stmt) throws SQLException{
         
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Customer ID :");
@@ -30,20 +30,18 @@ public class Customer {
         System.out.print("Enter your Password : ");
         password = sc.next();
         
-        try{
+        
         System.out.println("Signing in to the System...");
         stmt.execute("insert into customer values ('" + customerID +"','" + customerName + "',"+ phoneNo +",'" + email +"','"+ password + "','"+ gender +"')");
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
+  
+        
         System.out.println("Signed in to the System Successfully.");
         
         this.customerOptions(stmt);
         
     }
     
-    public void selectCustomer(Statement stmt){
+    public void selectCustomer(Statement stmt) throws SQLException{
         
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your customerID :");
@@ -56,17 +54,15 @@ public class Customer {
         this.password = checkPass;
         
         int tmp = 0; 
-        try{
+        
         ResultSet rs = stmt.executeQuery(sql);
 
         while(rs.next()){    
             tmp = rs.getInt(1);     
          } 
             rs.close();  
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-        }
+        
+            
         if(tmp==0){
                 System.out.println("customerID or password is incorrect.");
                 this.selectCustomer(stmt);
@@ -85,7 +81,7 @@ public class Customer {
       
         while(true){
             
-        System.out.println("********************************************************\n");
+        System.out.println("\n********************************************************");
         System.out.println("PRESS 1 : To Place New Shipment.");
         System.out.println("PRESS 2 : To track your Shipment.");
         System.out.println("PRESS 3 : To cancel your Shipment.");
@@ -110,7 +106,7 @@ public class Customer {
                      break;
             case 6 : System.out.println("Logging out of the System...");
                      break;
-            default : System.out.println("Invalid option , Please Enter again.");
+            default : System.out.println("Invalid option , Please Try again.");
                 
         }
         
@@ -167,7 +163,7 @@ public class Customer {
         
         while(true){
         Scanner sc = new Scanner(System.in);
-        System.out.println("********************************************************\n");
+        System.out.println("\n********************************************************");
         System.out.println("PRESS 1 : To Change Your Name.");
         System.out.println("PRESS 2 : To Change Your Contact Number.");
         System.out.println("PRESS 3 : To Change Your Email ID.");
