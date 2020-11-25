@@ -74,7 +74,8 @@ public class CourierService {
                     e.printStackTrace();
                 }
             }
-            else if(ch2.compareTo("n")==0 || ch2.compareTo("N")==0){
+            else if(ch2.compareTo("n")==0 || ch2.compareTo("N")==0)
+            {
                 try{
                 ch = true;
                 check = true;
